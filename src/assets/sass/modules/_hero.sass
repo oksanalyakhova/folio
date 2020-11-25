@@ -1,0 +1,68 @@
+.hero
+  .container,
+  .hero__wrap
+    height: 100%
+
+  &__wrap
+    position: relative
+    z-index: 15
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  &__title
+    margin: 0 auto
+    padding-bottom: 20px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    font-family: $bld
+    font-size: 2.2rem
+    line-height: 1.2
+    letter-spacing: 1px
+    text-align: center
+    color: $wh
+    @include bp(768)
+      padding-bottom: 40px
+    @include bp(1200)
+      padding-bottom: 45px
+
+    span
+      display: inline-block
+
+    .word-wrap
+      overflow: hidden
+
+    .word
+      opacity: 0
+      transform: translateY(100%) rotate(5deg)
+      transform-origin: bottom left
+      will-change: transform, opacity
+      transition: transform 1s cubic-bezier(1, .15, .25, 1), opacity 1s cubic-bezier(1, .15, .25, 1)
+
+  .content__img
+    margin: 0 auto
+    width: 5rem
+    overflow: hidden
+    @include bp(1200)
+      width: 7rem
+
+    img
+      width: 100%
+      opacity: 0
+      transform: translateY(100%) rotate(5deg)
+      transition: transform .45s cubic-bezier(1, .15, .25, 1), opacity .45s cubic-bezier(1, .15, .25, 1)
+      transition-delay: .65s
+
+      &.view-in
+        opacity: 1
+        transform: translateY(0) rotate(0)
+
+.desktop
+  .hero
+    align-items: center
+
+    &__title
+      font-size: 4.13889vw

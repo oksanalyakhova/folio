@@ -1,0 +1,101 @@
+.about
+  &__wrap
+    padding: 4rem 0
+    @include bp(768)
+      padding: 7.5rem 5rem
+
+  .content__img
+    position: relative
+    margin: 0 auto 4rem
+    //padding-bottom: 120%
+    width: 70vw
+    height: 120vw
+    @include bp(768)
+      margin: 0 auto 6rem
+
+    &.view-in
+      &::before
+        transform: scaleX(0) skewX(20deg)
+
+    &::before
+      @include pseudo()
+      width: 100%
+      height: 100%
+      background-color: $bl
+      transform: scaleX(1) skewX(0deg)
+      transform-origin: top right
+      transition: transform .75s cubic-bezier(1, .15, .25, 1)
+
+    img
+      position: absolute
+      top: 0
+      left: 0
+      z-index: -1
+      height: 100%
+      width: 100%
+      vertical-align: bottom
+      object-fit: cover
+
+  &__text
+    position: relative
+    padding: 4rem 0 2rem
+    @include bp(768)
+      padding: 6rem 0 3rem
+
+    &.view-in
+      &::before,
+      &::after
+        transform: scaleX(1)
+
+    &::before,
+    &::after
+      @include pseudo()
+      left: 0
+      width: 100%
+      height: 1px
+      background-color: $wh
+      transform: scaleX(0)
+      transform-origin: left center
+      transition: transform 1.5s cubic-bezier(1, .15, .25, 1)
+
+    &::before
+      top: 0
+
+    &::after
+      bottom: 0
+      transition-delay: 1.5s
+
+  .line
+    margin-bottom: 2rem
+    @include bp(768)
+      margin-bottom: 3rem
+    @include bp(1200)
+      max-width: 600px
+
+  p
+    font-family: $book
+    font-size: 1.45rem
+    opacity: 0
+    transform: translateY(100%) rotate(5deg)
+    transform-origin: bottom left
+    will-change: transform, opacity
+    transition: transform 1s cubic-bezier(1, .15, .25, 1), opacity 1s cubic-bezier(1, .15, .25, 1)
+
+.desktop
+  .about
+    &__wrap
+      position: relative
+      z-index: 15
+      padding: 0 5rem 15rem
+      display: flex
+      justify-content: space-around
+      align-items: center
+
+    .content__img
+      margin: 0
+      //padding-bottom: 40%
+      width: 25vw
+      height: 40vw
+
+    &__text
+      font-size: 1.65rem

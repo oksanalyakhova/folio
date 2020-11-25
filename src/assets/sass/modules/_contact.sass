@@ -1,0 +1,75 @@
+.contact
+  .container,
+  .contact__wrap
+    height: 100%
+
+  &__wrap
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  img
+    margin: 0 auto
+    width: 5rem
+
+  &__title
+    position: relative
+    margin-bottom: 3.125rem
+    width: 100%
+    height: 2em
+    font-size: 13.88889vw
+    font-style: italic
+    text-transform: uppercase
+    perspective: 100px
+
+    .item
+      position: absolute
+      top: 0
+      left: 6%
+      color: $bl
+      text-shadow: -1px -1px 0 rgba(240, 240, 240, 1), 1px -1px 0 rgba(240, 240, 240, 1), -1px 1px 0 rgba(240, 240, 240, 1), 1px 1px 0 rgba(240, 240, 240, 1)
+      transform-style: preserve-3d
+
+  &__email,
+  &__phone
+    padding: 0 15px
+
+    a
+      margin-bottom: .625rem
+      font-size: 1.4231rem
+      text-align: right
+
+.desktop
+  .contact
+    &__title
+      margin-bottom: 8vw
+      height: 1em
+      font-size: 7vw
+      line-height: 1
+
+      .item
+        left: 8%
+
+    &__email,
+    &__phone
+      padding: 0 30px
+
+      a
+        margin-bottom: 1.53377vw
+        font-size: 2.4231rem
+
+
+.site-about
+  .contact
+    &__title
+      height: 3em
+      font-size: 10.88889vw
+      @include bp(768)
+        font-size: 11.38889vw
+
+.desktop
+  .site-about
+    .contact
+      &__title
+        height: 1em
+        font-size: 7.88889vw

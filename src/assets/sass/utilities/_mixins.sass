@@ -1,0 +1,13 @@
+// bp
+@mixin bp($point, $type: min)
+  @media screen and (#{$type}-width: #{$point}px)
+    @content
+
+// pseudo
+@mixin pseudo($display: block, $pos: absolute, $content: '')
+  content: $content
+  display: $display
+  position: $pos
+
+
+

@@ -1,0 +1,128 @@
+@keyframes move-skill
+  0%
+    transform: translate3d(var(--move-initial), 0, 0)
+  100%
+    transform: translate3d(var(--move-final), 0, 0)
+
+@keyframes items-animation
+  0%
+    transform: translateY(0)
+  15%
+    transform: translateY(-1em)
+  30%
+    transform: translateY(-2em)
+  45%
+    transform: translateY(-3em)
+  60%
+    transform: translateY(-4em)
+  85%
+    transform: translateY(-5em)
+  100%
+    transform: translateY(0)
+
+.skills
+  --offset: 20vw
+  --move-initial: calc(-25% + var(--offset))
+  --move-final: calc(-50% + var(--offset))
+
+  &__title
+    margin-bottom: 3rem
+    font-size: 2.5rem
+    line-height: 1
+    text-align: center
+    color: transparent
+    -webkit-text-stroke-width: 1px
+    -webkit-text-stroke-color: $wh
+    @include bp(768)
+      margin-bottom: 4rem
+      font-size: 3.5rem
+
+  &__subtitle
+    margin: 6rem 0 2rem
+    font-size: 2.5rem
+    line-height: 1
+    text-align: center
+    color: transparent
+    -webkit-text-stroke-width: 1px
+    -webkit-text-stroke-color: $wh
+    @include bp(768)
+      margin: 8rem 0 4rem
+      font-size: 3.5rem
+
+    .subtitle__item
+      display: flex
+      justify-content: center
+      overflow: hidden
+
+    .subtitle-list
+      padding-left: .25em
+      height: 1em
+      display: flex
+      flex-direction: column
+      transform: translateY(0)
+      transition: transform .5s cubic-bezier(1, .15, .25, 1)
+      animation: items-animation 5s cubic-bezier(1, .15, .25, 1) infinite
+
+      &__item
+        height: 1em
+        color: $wh
+
+  &__text
+    width: 100%
+
+.skill
+  width: fit-content
+  display: flex
+  position: relative
+  overflow: hidden
+  transform: translate3d(var(--move-initial), 0, 0)
+
+  //&:nth-child(odd)
+  //  animation: move-skill 10s linear infinite
+  //  animation-play-state: paused
+  //
+  //  &.view-in
+  //    animation-play-state: running
+
+  &:nth-child(even)
+    color: transparent
+    -webkit-text-stroke-width: 1px
+    -webkit-text-stroke-color: $wh
+    //animation: move-skill 10s linear infinite reverse
+    //animation-play-state: paused
+    //
+    //&.view-in
+    //  animation-play-state: running
+
+  span
+    padding: 0 1vw
+    text-align: center
+    white-space: nowrap
+    font-family: $heavy
+    font-size: 2.6rem
+    line-height: 1.25
+    opacity: 0
+    transform: translateY(100%)
+    transform-origin: bottom left
+    will-change: transform, opacity
+    transition: transform .75s cubic-bezier(1, .15, .25, 1), opacity .75s cubic-bezier(1, .15, .25, 1)
+    @include bp(768)
+      font-size: 4rem
+
+.desktop
+  .skills
+    &__title
+      margin: 0 auto 10rem
+      width: 60%
+      font-size: 4.5rem
+
+    &__subtitle
+      margin: 10rem auto
+      width: 60%
+      font-size: 4.5rem
+
+  .skill
+    animation: none
+    span
+      font-size: 7rem
+      line-height: 1
